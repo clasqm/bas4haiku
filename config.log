@@ -268,8 +268,8 @@ conftest.c:46:1: warning: function declaration isn't a prototype [-Wstrict-proto
 conftest.c:55:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp//ccig7dy4.o: In function `main':
-/Storage/Unzip/bas-2.4/conftest.c:57: undefined reference to `tgetent'
+/tmp//ccMvXKIU.o: In function `main':
+/Storage/source/git/bas4haiku/conftest.c:57: undefined reference to `tgetent'
 collect2: error: ld returned 1 exit status
 configure:3685: $? = 1
 configure: failed program was:
@@ -470,8 +470,8 @@ conftest.c:32:6: warning: conflicting types for built-in function 'gettext'
 conftest.c:34:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp//cc5YGnak.o: In function `main':
-/Storage/Unzip/bas-2.4/conftest.c:36: undefined reference to `gettext'
+/tmp//cca8tNrh.o: In function `main':
+/Storage/source/git/bas4haiku/conftest.c:36: undefined reference to `gettext'
 collect2: error: ld returned 1 exit status
 configure:3966: $? = 1
 configure: failed program was:
@@ -558,6 +558,7 @@ config.status:826: creating Makefile
 config.status:826: creating bas.1
 config.status:826: creating test/runbas
 config.status:826: creating config.h
+config.status:1001: config.h is unchanged
 
 ## ---------------- ##
 ## Cache variables. ##
