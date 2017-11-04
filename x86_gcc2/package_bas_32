@@ -1,0 +1,63 @@
+#!/bin/sh
+
+#adjust the following:
+pkgname=bas_32
+srclocation=/Storage/source/git/bas4haiku
+reponame=/Storage/projects/repo_devel_32
+
+#generated paths - do not edit
+scriptname="$(readlink -f ${BASH_SOURCE[0]})"
+archlocation=$srclocation/$(getarch)
+srclocationinpackage=/Storage/projects/ports/$pkgname/data/src/$pkgname
+pkgfileslocation=/Storage/projects/ports/$pkgname
+mkdir -p $archlocation
+
+#list dependencies and update if necessary
+pkgman update ncurses6  ncurses6_devel gettext gettext_libintl
+
+#compile
+cd $srclocation
+./configure
+make
+make clean
+
+#move files to where they are required for packaging
+mv -f  bas /Storage/projects/ports/$pkgname/bin
+chmod +x /Storage/projects/ports/$pkgname/bin/bas
+cp -f bas.1 /Storage/projects/ports/$pkgname/documentation/man/man1
+cp -f bas.pdf /Storage/projects/ports/$pkgname/documentation/packages/bas
+cp -f README /Storage/projects/ports/$pkgname/documentation/packages/bas
+
+#backup latest packaging script and datafile to git location
+cp -f $scriptname $archlocation
+cp -f $pkgfileslocation/.PackageInfo $archlocation
+
+#update github
+git add *
+git commit -m "$(date)"
+git push 
+
+#update src inside package
+cd ..
+zip -r9yq $pkgname.zip bas4haiku/*
+mv -f $pkgname.zip $srclocationinpackage
+
+#create package
+cd $pkgfileslocation
+package create -b $pkgname_2.4-5_x86_gcc2.hpkg
+sleep 0.5
+package add $pkgname_2.4-5_x86_gcc2.hpkg data bin documentation
+sleep 0.5
+addattr BeShare:Info "bas is a BASIC interpreter" $pkgname_2.4-5_x86_gcc2.hpkg
+cp $pkgname_2.4-5_x86_gcc2.hpkg "/Storage/Haiku/My ports"
+mv $pkgname_2.4-5_x86_gcc2.hpkg $reponame
+
+#backup packaging directory
+cd ..
+zip -r9yq $pkgname.zip $pkgname/*
+mv -f $pkgname.zip /Storage/Haiku/ports_bkp
+
+#link packaging script to bin
+ln -s -f $scriptname /boot/home/config/non-packaged/bin
+
+sync

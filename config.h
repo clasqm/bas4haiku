@@ -15,7 +15,7 @@
 /* #undef HAVE_CURSES_H */
 
 /* Is there a tgmath.h? */
-#define HAVE_TGMATH_H 1
+/* #undef HAVE_TGMATH_H */
 
 /* Define this as 1 if your system has lrint(). */
 #define HAVE_LRINT 1
