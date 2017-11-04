@@ -268,7 +268,7 @@ conftest.c:46:1: warning: function declaration isn't a prototype [-Wstrict-proto
 conftest.c:55:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp//cclp7NBr.o: In function `main':
+/tmp//ccHyGPn2.o: In function `main':
 /Storage/source/git/bas4haiku/conftest.c:57: undefined reference to `tgetent'
 collect2: error: ld returned 1 exit status
 configure:3685: $? = 1
@@ -470,7 +470,7 @@ conftest.c:32:6: warning: conflicting types for built-in function 'gettext'
 conftest.c:34:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp//ccptLsjS.o: In function `main':
+/tmp//cciLgHLh.o: In function `main':
 /Storage/source/git/bas4haiku/conftest.c:36: undefined reference to `gettext'
 collect2: error: ld returned 1 exit status
 configure:3966: $? = 1
