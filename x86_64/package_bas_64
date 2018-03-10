@@ -2,25 +2,27 @@
 
 #adjust the following:
 pkgname=bas_64
+version=_2.4-5
 srclocation=/Storage/source/git/bas4haiku
 reponame=/Storage/projects/repo_devel_64
-
-#generated paths - do not edit
-scriptname="$(readlink -f ${BASH_SOURCE[0]})"
-archlocation=$srclocation/$(getarch)
-srclocationinpackage=/Storage/projects/ports/$pkgname/data/src/$pkgname
-pkgfileslocation=/Storage/projects/ports/$pkgname
-mkdir -p $archlocation
+bedsharemsg="bas is a BASIC interpreter"
 
 #list dependencies and update if necessary
 pkgman update ncurses6 gettext gettext_libintl
 
-#compile
+#generated paths - do not edit
+scriptname="$(readlink -f ${BASH_SOURCE[0]})"
+archlocation=$srclocation/$(getarch)
+thisarch=_$(getarch)
+srclocationinpackage=/Storage/projects/ports/$pkgname/data/src/$pkgname
+pkgfileslocation=/Storage/projects/ports/$pkgname
+mkdir -p $archlocation
+
+#compile - edit this as required
 cd $srclocation
 ./configure
 make
 make clean
-
 #move files to where they are required for packaging
 mv -f  bas /Storage/projects/ports/$pkgname/bin
 chmod +x /Storage/projects/ports/$pkgname/bin/bas
@@ -44,13 +46,13 @@ mv -f $pkgname.zip $srclocationinpackage
 
 #create package
 cd $pkgfileslocation
-package create -b $pkgname_2.4-5_x86_64.hpkg
+package create -b $pkgname$version$thisarch.hpkg
 sleep 0.5
-package add $pkgname_2.4-5_x86_64.hpkg data bin documentation
+package add $pkgname$version$thisarch.hpkg data bin documentation
 sleep 0.5
-addattr BeShare:Info "bas is a BASIC interpreter" $pkgname_2.4-5_x86_64.hpkg
-cp $pkgname_2.4-5_x86_64.hpkg "/Storage/Haiku/My ports"
-mv $pkgname_2.4-5_x86_64.hpkg $reponame
+addattr BeShare:Info $besharemsg $pkgname$version$thisarch.hpkg
+cp -f $pkgname$version$thisarch.hpkg "/Storage/Haiku/My ports"
+mv -f $pkgname$version$thisarch.hpkg $reponame
 
 #backup packaging directory
 cd ..
