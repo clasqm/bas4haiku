@@ -5,7 +5,7 @@ pkgname=bas_32
 version=_2.4-5
 srclocation=/Storage/source/git/bas4haiku
 reponame=/Storage/projects/repo_devel_32
-bedsharemsg="bas is a BASIC interpreter"
+besharemsg="bas is a BASIC interpreter"
 
 #list dependencies and update if necessary
 pkgman update ncurses6 gettext gettext_libintl
@@ -50,7 +50,7 @@ package create -b $pkgname$version$thisarch.hpkg
 sleep 0.5
 package add $pkgname$version$thisarch.hpkg data bin documentation
 sleep 0.5
-addattr BeShare:Info $besharemsg $pkgname$version$thisarch.hpkg
+addattr BeShare:Info "$besharemsg" $pkgname$version$thisarch.hpkg
 cp -f $pkgname$version$thisarch.hpkg "/Storage/Haiku/My ports"
 mv -f $pkgname$version$thisarch.hpkg $reponame
 
