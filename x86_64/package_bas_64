@@ -50,7 +50,7 @@ package create -b $pkgname$version$thisarch.hpkg
 sleep 0.5
 package add $pkgname$version$thisarch.hpkg data bin documentation
 sleep 0.5
-addattr BeShare:Info $besharemsg $pkgname$version$thisarch.hpkg
+addattr BeShare:Info "$besharemsg" $pkgname$version$thisarch.hpkg
 cp -f $pkgname$version$thisarch.hpkg "/Storage/Haiku/My ports"
 mv -f $pkgname$version$thisarch.hpkg $reponame
 
