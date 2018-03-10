@@ -5,7 +5,7 @@ pkgname=bas_64
 version=_2.4-5
 srclocation=/Storage/source/git/bas4haiku
 reponame=/Storage/projects/repo_devel_64
-bedsharemsg="bas is a BASIC interpreter"
+besharemsg="bas is a BASIC interpreter"
 
 #list dependencies and update if necessary
 pkgman update ncurses6 gettext gettext_libintl
