@@ -27,8 +27,8 @@ make clean
 mv -f  bas /Storage/projects/ports/$pkgname/bin
 chmod +x /Storage/projects/ports/$pkgname/bin/bas
 cp -f bas.1 /Storage/projects/ports/$pkgname/documentation/man/man1
-cp -f bas.pdf /Storage/projects/ports/$pkgnamedocumentation/packages/bas
-cp -f README /Storage/projects/ports/$pkgnamedocumentation/packages/bas
+cp -f bas.pdf /Storage/projects/ports/$pkgname/documentation/packages/bas
+cp -f README /Storage/projects/ports/$pkgname/documentation/packages/bas
 
 #backup latest packaging script and datafile to git location
 cp -f $scriptname $archlocation
