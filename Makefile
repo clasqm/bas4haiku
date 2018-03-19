@@ -10,7 +10,7 @@ RANLIB=		ranlib
 CFLAGS=		-g -O2 -pipe -Wall -Wshadow -Wbad-function-cast -Wmissing-prototypes -Wstrict-prototypes -Wcast-align -Wcast-qual -Wpointer-arith -Wwrite-strings -Wmissing-declarations -Wnested-externs -Wundef -pedantic -fno-common
 CPPFLAGS=	 -DLOCALEDIR=\"$(localedir)\"
 LDFLAGS=	 -g
-LIBS=		-lintl -lncurses 
+LIBS=		-lintl 
 
 CATALOGS=	de.mo
 

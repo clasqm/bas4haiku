@@ -6,16 +6,16 @@
 #define PACKAGE @PACKAGE@
 
 /* Do you have tgetent()? */
-#define HAVE_TGETENT 1
+/* #undef HAVE_TGETENT */
 
 /* Should we need to include termcap.h? */
-#define HAVE_TERMCAP_H 1
+/* #undef HAVE_TERMCAP_H */
 
 /* Should we need to include curses.h? */
 /* #undef HAVE_CURSES_H */
 
 /* Is there a tgmath.h? */
-#define HAVE_TGMATH_H 1
+/* #undef HAVE_TGMATH_H */
 
 /* Define this as 1 if your system has lrint(). */
 #define HAVE_LRINT 1
@@ -24,7 +24,7 @@
 #define HAVE_NANOSLEEP 1
 
 /* What does tputs return? */
-/* #undef TPUTS_RETURNS_VOID */
+#define TPUTS_RETURNS_VOID 1
 
 /* Define as 1 if you use dmalloc. */
 /* #undef USE_DMALLOC */
